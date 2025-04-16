@@ -1,17 +1,17 @@
 version: '3'
 services:
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image:  microservice-frontend:frontend
     ports:
       - "3000:3000"
     depends_on:
       - backend
+  
   backend:
-    build: ./backend
+    image: microservice-backend:backend
     ports:
       - "5000:5000"
+  
   nginx:
     image: nginx:latest
     ports:
